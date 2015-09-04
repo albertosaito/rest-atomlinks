@@ -1,9 +1,13 @@
 package com.alberto.tinkering.rest.atomlinks.resource;
 
+import com.alberto.tinkering.rest.atomlinks.exception.RestCustomException;
 import com.alberto.tinkering.rest.atomlinks.model.Model;
 
 import java.util.ArrayList;
 import java.util.Collection;
+
+import javax.ws.rs.InternalServerErrorException;
+import javax.ws.rs.NotFoundException;
 
 /**
  * RestAtomLinksResourceImpl
@@ -55,7 +59,8 @@ public class RestAtomLinksResourceImpl implements RestAtomLinksResource {
      */
     @Override
     public Model getModel(final String id) {
-	return new Model(id, "model " + id);
+	// For testing purposes throw a NotFoundException :)
+	throw new NotFoundException(String.format("Model %s not found", id));
     }
 
     /**
@@ -69,7 +74,7 @@ public class RestAtomLinksResourceImpl implements RestAtomLinksResource {
      */
     @Override
     public void updateModel(final String id, final Model model) {
-	// TODO Auto-generated method stub
+	throw new InternalServerErrorException(String.format("Unable to update Model %s", id));
 
     }
 
@@ -82,7 +87,7 @@ public class RestAtomLinksResourceImpl implements RestAtomLinksResource {
      */
     @Override
     public void deleteModel(final String id) {
-	// TODO Auto-generated method stub
+	throw new RestCustomException(String.format("Unable to delete Model %s", id));
 
     }
 

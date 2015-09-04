@@ -1,5 +1,6 @@
 package com.alberto.tinkering.rest.atomlinks.config;
 
+import com.alberto.tinkering.rest.atomlinks.provider.RestExceptionHandler;
 import com.alberto.tinkering.rest.atomlinks.resource.RestAtomLinksResourceImpl;
 
 import java.util.HashSet;
@@ -31,6 +32,7 @@ public class RestAtomLinksApplication extends Application {
     @Override
     public Set<Class<?>> getClasses() {
 	resources.add(RestAtomLinksResourceImpl.class);
+	resources.add(RestExceptionHandler.class);
 	return resources;
     }
 
