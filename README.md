@@ -1,0 +1,1 @@
+### Atom Links for REST services using RestEasy + WildFly
